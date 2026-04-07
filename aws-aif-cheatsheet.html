@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AWS AIF-C01 AI Practitioner — Ultimate Cheat Sheet</title>
+<link rel="stylesheet" href="shared-cheatsheet.css">
+<script src="shared-cheatsheet.js" defer></script>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<div class="topbar">
+  <span class="logo">🤖 AWS AIF-C01</span>
+  <span class="subtitle">AI Practitioner Cheat Sheet</span>
+  <span class="spacer"></span>
+  <input type="text" id="searchBox" placeholder="🔍 Search anything..." oninput="searchContent(this.value)">
+  <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()">🌙 Dark</button>
+</div>
+
+<div class="layout">
+<nav class="sidebar">
+  <div class="nav-group">Exam Overview</div>
+  <a href="#exam-info">Exam Info & Domains</a>
+  <div class="nav-group">Domain 1 (20%)</div>
+  <a href="#ai-ml-basics">AI vs ML vs DL vs GenAI</a>
+  <a href="#ml-types">ML Types & Algorithms</a>
+  <a href="#ml-pipeline">ML Pipeline & Lifecycle</a>
+  <a href="#ml-metrics">Evaluation Metrics</a>
+  <a href="#ml-problems">Common ML Problems</a>
+  <div class="nav-group">Domain 2 (24%)</div>
+  <a href="#genai-fundamentals">GenAI Fundamentals</a>
+  <a href="#foundation-models">Foundation Models & LLMs</a>
+  <a href="#transformers">Transformers & Attention</a>
+  <a href="#prompt-engineering">Prompt Engineering</a>
+  <a href="#rag">RAG & Knowledge Bases</a>
+  <a href="#fine-tuning">Fine-Tuning & Training</a>
+  <div class="nav-group">Domain 3 (28%)</div>
+  <a href="#bedrock">Amazon Bedrock</a>
+  <a href="#sagemaker">Amazon SageMaker</a>
+  <a href="#ai-services">AWS AI Services (Pre-trained)</a>
+  <a href="#agents-tools">Agents & Tools</a>
+  <a href="#genai-apps">Building GenAI Apps</a>
+  <div class="nav-group">Domain 4 (14%)</div>
+  <a href="#responsible-ai">Responsible AI Principles</a>
+  <a href="#bias-fairness">Bias & Fairness</a>
+  <a href="#explainability">Explainability & Transparency</a>
+  <a href="#guardrails">Guardrails & Safety</a>
+  <div class="nav-group">Domain 5 (14%)</div>
+  <a href="#security">Security & Compliance</a>
+  <a href="#governance">Governance & Data Privacy</a>
+  <div class="nav-group">Bonus</div>
+  <a href="#master-table">Master Service Table</a>
+  <a href="#glossary">AI/ML Glossary</a>
+  <a href="#exam-tips">Final Exam Tips</a>
+</nav>
+
+<main class="content">
+
+<!-- ==================== EXAM INFO ==================== -->
+<div class="section" id="exam-info">
+  <h2>📋 Exam Overview — AIF-C01</h2>
+  <div class="info-box">
+    <h3>Quick Facts</h3>
+    <div class="stat-row">
+      <div class="stat"><div class="num">85</div><div class="label">Questions</div></div>
+      <div class="stat"><div class="num">120</div><div class="label">Minutes</div></div>
+      <div class="stat"><div class="num">700</div><div class="label">Passing Score (out of 1000)</div></div>
+      <div class="stat"><div class="num">$75</div><div class="label">USD Exam Fee</div></div>
+      <div class="stat"><div class="num">65</div><div class="label">Scored (20 unscored)</div></div>
+    </div>
+  </div>
+  <p>Format: Multiple choice & multiple response. No penalty for wrong answers — always answer everything.</p>
+
+  <h3>5 Exam Domains & Weights</h3>
+  <table>
+    <tr><th>Domain</th><th>Weight</th><th>Focus</th></tr>
+    <tr><td><span class="badge purple">1</span> Fundamentals of AI and ML</td><td>20%</td><td>AI/ML concepts, types of learning, data types, ML pipeline, evaluation metrics</td></tr>
+    <tr><td><span class="badge green">2</span> Fundamentals of Generative AI</td><td>24%</td><td>GenAI concepts, LLMs, transformers, prompt engineering, foundation models</td></tr>
+    <tr><td><span class="badge red">3</span> Applications of Foundation Models</td><td>28%</td><td>Amazon Bedrock, SageMaker, RAG, agents, building GenAI apps on AWS</td></tr>
+    <tr><td><span class="badge orange">4</span> Guidelines for Responsible AI</td><td>14%</td><td>Bias, fairness, explainability, transparency, guardrails, safety</td></tr>
+    <tr><td><span class="badge blue">5</span> Security, Compliance & Governance</td><td>14%</td><td>Data privacy, IAM for AI, encryption, compliance frameworks</td></tr>
+  </table>
+  <div class="tip">Domains 2 + 3 = 52% of the exam. Generative AI and Amazon Bedrock are the core focus. Know them deeply.</div>
+</div>
+
+<!-- ==================== DOMAIN 1: AI/ML FUNDAMENTALS ==================== -->
+<div class="section" id="ai-ml-basics">
+  <h2>🧠 Domain 1: Fundamentals of AI & ML (20%)</h2>
+
+  <h3>AI vs ML vs Deep Learning vs Generative AI</h3>
+  <div class="diagram">
+    <div class="box" style="border-color: var(--accent-red); min-width: 500px; padding: 20px;">
+      <strong style="color: var(--accent-red);">🤖 Artificial Intelligence (AI)</strong>
+      Broadest concept — machines that simulate human intelligence
+      <div style="margin-top: 12px; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+        <div class="box green" style="min-width: 300px;">
+          <strong>📊 Machine Learning (ML)</strong>
+          Subset of AI — learns from data without explicit programming
+          <div style="margin-top: 10px; display: flex; gap: 8px; justify-content: center; flex-wrap: wrap;">
+            <div class="box" style="min-width: 180px; border-color: var(--accent-blue);">
+              <strong style="color: var(--accent-blue);">🔬 Deep Learning</strong>
+              Neural networks with many layers
+            </div>
+            <div class="box" style="min-width: 180px; border-color: var(--accent-purple);">
+              <strong style="color: var(--accent-blue);">✨ Generative AI</strong>
+              Creates new content (text, images, code)
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <table>
+    <tr><th>Term</th><th>Definition</th><th>Example</th></tr>
+    <tr><td>AI</td><td>Broad field of making machines act intelligently</td><td>Self-driving cars, chess engines, Alexa</td></tr>
+    <tr><td>ML</td><td>Algorithms that learn patterns from data</td><td>Spam filters, recommendation engines</td></tr>
+    <tr><td>Deep Learning</td><td>ML using neural networks with many layers</td><td>Image recognition, speech recognition</td></tr>
+    <tr><td>Generative AI</td><td>AI that creates new content (text, images, code, audio)</td><td>ChatGPT, DALL-E, Amazon Bedrock</td></tr>
+    <tr><td>Foundation Model</td><td>Large pre-trained model adaptable to many tasks</td><td>Claude, Llama, Amazon Titan</td></tr>
+    <tr><td>LLM</td><td>Large Language Model — foundation model for text</td><td>Claude, GPT, Llama</td></tr>
+    <tr><td>Neural Network</td><td>Computing system inspired by the brain (nodes + layers)</td><td>Input → Hidden layers → Output</td></tr>
+    <tr><td>NLP</td><td>Natural Language Processing — AI understanding human language</td><td>Sentiment analysis, translation, chatbots</td></tr>
+    <tr><td>Computer Vision</td><td>AI understanding images and video</td><td>Face detection, object recognition</td></tr>
+  </table>
+</div>
+
+<div class="section" id="ml-types">
+  <h3>Types of Machine Learning</h3>
+
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-title">📋 Supervised Learning</div>
+      <div class="card-body">
+        Learns from <strong>labeled data</strong> (input + correct answer).<br><br>
+        Two types:<br>
+        • <strong style="color:var(--accent-teal);">Classification</strong> — predict a category (spam/not spam, cat/dog)<br>
+        • <strong style="color:var(--accent-teal);">Regression</strong> — predict a number (house price, temperature)<br><br>
+        Algorithms: Linear Regression, Logistic Regression, Decision Trees, Random Forest, SVM, XGBoost, Neural Networks
+      </div>
+    </div>
+    <div class="card green">
+      <div class="card-title">🔍 Unsupervised Learning</div>
+      <div class="card-body">
+        Learns from <strong>unlabeled data</strong> (no correct answers).<br><br>
+        Types:<br>
+        • <strong style="color:var(--accent-teal);">Clustering</strong> — group similar items (customer segments)<br>
+        • <strong style="color:var(--accent-teal);">Dimensionality Reduction</strong> — simplify data (PCA)<br>
+        • <strong style="color:var(--accent-teal);">Anomaly Detection</strong> — find outliers (fraud)<br><br>
+        Algorithms: K-Means, DBSCAN, PCA, t-SNE
+      </div>
+    </div>
+    <div class="card red">
+      <div class="card-title">🎮 Reinforcement Learning</div>
+      <div class="card-body">
+        Agent learns by <strong>trial and error</strong> — gets rewards/penalties.<br><br>
+        • No labeled data — learns from environment<br>
+        • Agent takes actions → gets reward/penalty<br>
+        • Goal: maximize cumulative reward<br><br>
+        Examples: Game playing, robotics, AWS DeepRacer, autonomous driving
+      </div>
+    </div>
+  </div>
+
+  <h4>Quick Decision: Which ML Type?</h4>
+  <table>
+    <tr><th>Scenario</th><th>ML Type</th><th>Sub-Type</th></tr>
+    <tr><td>Predict if email is spam</td><td>Supervised</td><td>Classification</td></tr>
+    <tr><td>Predict house price</td><td>Supervised</td><td>Regression</td></tr>
+    <tr><td>Group customers by behavior</td><td>Unsupervised</td><td>Clustering</td></tr>
+    <tr><td>Detect fraudulent transactions</td><td>Unsupervised</td><td>Anomaly Detection</td></tr>
+    <tr><td>Train a robot to walk</td><td>Reinforcement</td><td>—</td></tr>
+    <tr><td>Recommend products</td><td>Supervised / RL</td><td>Recommendation</td></tr>
+    <tr><td>Predict next word in a sentence</td><td>Supervised (self-supervised)</td><td>Generative / LLM</td></tr>
+    <tr><td>Translate languages</td><td>Supervised</td><td>Sequence-to-Sequence</td></tr>
+    <tr><td>Reduce features in dataset</td><td>Unsupervised</td><td>Dimensionality Reduction</td></tr>
+  </table>
+
+  <div class="tip">"Labeled data" = supervised. "No labels, find patterns" = unsupervised. "Agent + reward" = reinforcement. This is a guaranteed exam question.</div>
+
+  <h4>Data Types in AI/ML</h4>
+  <table>
+    <tr><th>Data Type</th><th>Description</th><th>Example</th></tr>
+    <tr><td>Labeled</td><td>Data with known correct answers (input + output)</td><td>Images tagged as "cat" or "dog"</td></tr>
+    <tr><td>Unlabeled</td><td>Data without answers — just raw input</td><td>Untagged customer purchase history</td></tr>
+    <tr><td>Structured</td><td>Organized in rows/columns (tables, databases)</td><td>CSV files, SQL databases</td></tr>
+    <tr><td>Unstructured</td><td>No fixed format</td><td>Text, images, audio, video, PDFs</td></tr>
+    <tr><td>Semi-structured</td><td>Has some organization but not rigid</td><td>JSON, XML, emails</td></tr>
+    <tr><td>Tabular</td><td>Rows and columns</td><td>Spreadsheets, database tables</td></tr>
+    <tr><td>Time-series</td><td>Data points indexed by time</td><td>Stock prices, sensor readings</td></tr>
+    <tr><td>Text</td><td>Natural language data</td><td>Reviews, documents, chat logs</td></tr>
+    <tr><td>Image</td><td>Visual data (pixels)</td><td>Photos, medical scans, satellite images</td></tr>
+  </table>
+</div>
+
+<div class="section" id="ml-pipeline">
+  <h3>ML Pipeline / Lifecycle</h3>
+  <p>The end-to-end process of building an ML model. Know each step.</p>
+
+  <div class="flow">
+    <div class="step"><div class="icon">🎯</div><strong>1. Define Problem</strong>Business goal</div>
+    <div class="connector">→</div>
+    <div class="step"><div class="icon">📊</div><strong>2. Collect Data</strong>Gather datasets</div>
+    <div class="connector">→</div>
+    <div class="step"><div class="icon">🧹</div><strong>3. Prepare Data</strong>Clean, label, split</div>
+    <div class="connector">→</div>
+    <div class="step"><div class="icon">🔬</div><strong>4. Choose Model</strong>Select algorithm</div>
+    <div class="connector">→</div>
+    <div class="step"><div class="icon">🏋️</div><strong>5. Train Model</strong>Feed data, learn</div>
+    <div class="connector">→</div>
+    <div class="step"><div class="icon">📏</div><strong>6. Evaluate</strong>Test performance</div>
+    <div class="connector">→</div>
+    <div class="step"><div class="icon">🔧</div><strong>7. Tune</strong>Optimize hyperparams</div>
+    <div class="connector">→</div>
+    <div class="step"><div class="icon">🚀</div><strong>8. Deploy</strong>Put in production</div>
+    <div class="connector">→</div>
+    <div class="step"><div class="icon">📡</div><strong>9. Monitor</strong>Track & retrain</div>
+  </div>
+
+  <h4>Key Pipeline Concepts</h4>
+  <table>
+    <tr><th>Concept</th><th>What It Means</th></tr>
+    <tr><td>Training Data</td><td>Data used to teach the model (typically 70-80% of dataset)</td></tr>
+    <tr><td>Validation Data</td><td>Data used to tune hyperparameters during training (10-15%)</td></tr>
+    <tr><td>Test Data</td><td>Data used for final evaluation — model never sees this during training (10-15%)</td></tr>
+    <tr><td>Feature Engineering</td><td>Selecting/creating the most useful input variables for the model</td></tr>
+    <tr><td>Hyperparameters</td><td>Settings you configure BEFORE training (learning rate, epochs, batch size)</td></tr>
+    <tr><td>Training</td><td>Model learns patterns from data by adjusting internal weights</td></tr>
+    <tr><td>Inference</td><td>Using a trained model to make predictions on new data</td></tr>
+    <tr><td>Batch Inference</td><td>Process many predictions at once (offline)</td></tr>
+    <tr><td>Real-time Inference</td><td>Get predictions instantly (online, low latency)</td></tr>
+  </table>
+</div>
+
+<div class="section" id="ml-metrics">
+  <h3>Model Evaluation Metrics (IMPORTANT)</h3>
+
+  <h4>Classification Metrics</h4>
+  <table>
+    <tr><th>Metric</th><th>Formula / Meaning</th><th>When to Use</th></tr>
+    <tr><td><span class="badge purple">Accuracy</span></td><td>Correct predictions / Total predictions</td><td>Balanced datasets. NOT good for imbalanced data.</td></tr>
+    <tr><td><span class="badge green">Precision</span></td><td>True Positives / (True Positives + False Positives)</td><td>"Of all predicted positive, how many were actually positive?" Use when false positives are costly (spam filter).</td></tr>
+    <tr><td><span class="badge red">Recall (Sensitivity)</span></td><td>True Positives / (True Positives + False Negatives)</td><td>"Of all actual positives, how many did we catch?" Use when false negatives are costly (cancer detection).</td></tr>
+    <tr><td><span class="badge orange">F1 Score</span></td><td>Harmonic mean of Precision & Recall</td><td>Balance between precision and recall. Good for imbalanced datasets.</td></tr>
+    <tr><td><span class="badge blue">AUC-ROC</span></td><td>Area Under the ROC Curve</td><td>Overall model performance across all thresholds. 1.0 = perfect, 0.5 = random.</td></tr>
+  </table>
+
+  <h4>Regression Metrics</h4>
+  <table>
+    <tr><th>Metric</th><th>Meaning</th></tr>
+    <tr><td>MSE (Mean Squared Error)</td><td>Average of squared differences. Penalizes large errors more.</td></tr>
+    <tr><td>RMSE (Root MSE)</td><td>Square root of MSE. Same units as target variable.</td></tr>
+    <tr><td>MAE (Mean Absolute Error)</td><td>Average of absolute differences. Less sensitive to outliers.</td></tr>
+    <tr><td>R² (R-Squared)</td><td>How much variance the model explains. 1.0 = perfect fit.</td></tr>
+  </table>
+
+  <h4>Confusion Matrix (Know This!)</h4>
+  <div class="info-box" style="text-align: center;">
+    <table style="max-width: 400px; margin: 0 auto;">
+      <tr><th></th><th style="color: var(--accent-teal);">Predicted Positive</th><th style="color: var(--accent-red);">Predicted Negative</th></tr>
+      <tr><td style="font-weight:700; color: var(--accent-teal);">Actual Positive</td><td class="cm-tp">✅ True Positive (TP)</td><td class="cm-fn">❌ False Negative (FN)<br><small>Type II Error</small></td></tr>
+      <tr><td style="font-weight:700; color: var(--accent-red);">Actual Negative</td><td class="cm-fp">❌ False Positive (FP)<br><small>Type I Error</small></td><td class="cm-tn">✅ True Negative (TN)</td></tr>
+    </table>
+  </div>
+
+  <div class="tip">Precision = "Don't cry wolf" (minimize false alarms). Recall = "Don't miss anything" (catch all positives). F1 = balance both.</div>
+</div>
+
+<div class="section" id="ml-problems">
+  <h3>Common ML Problems</h3>
+  <table>
+    <tr><th>Problem</th><th>What It Means</th><th>How to Fix</th></tr>
+    <tr><td><span class="badge red">Overfitting</span></td><td>Model memorizes training data, performs poorly on new data. Too complex.</td><td>More data, regularization, dropout, simpler model, cross-validation</td></tr>
+    <tr><td><span class="badge orange">Underfitting</span></td><td>Model is too simple, can't learn patterns. Poor on both training & test data.</td><td>More features, more complex model, more training time, less regularization</td></tr>
+    <tr><td><span class="badge purple">Bias (Statistical)</span></td><td>Systematic error from wrong assumptions. Model consistently wrong in one direction.</td><td>Better features, more complex model</td></tr>
+    <tr><td><span class="badge blue">Variance</span></td><td>Model is too sensitive to training data fluctuations.</td><td>More data, regularization, ensemble methods</td></tr>
+    <tr><td><span class="badge green">Data Leakage</span></td><td>Test data information leaks into training. Artificially high performance.</td><td>Proper train/test split, careful feature engineering</td></tr>
+    <tr><td><span class="badge pink">Class Imbalance</span></td><td>One class has far more samples than another (99% vs 1%).</td><td>Oversampling (SMOTE), undersampling, weighted loss, F1 score</td></tr>
+  </table>
+
+  <div class="warn">Overfitting = "too good on training, bad on test." Underfitting = "bad on everything." The exam loves asking about these.</div>
+</div>
+
+<!-- ==================== DOMAIN 2: GENERATIVE AI ==================== -->
+<div class="section" id="genai-fundamentals">
+  <h2>✨ Domain 2: Fundamentals of Generative AI (24%)</h2>
+
+  <h3>What is Generative AI?</h3>
+  <p>A type of AI that can create NEW content — text, images, code, audio, video — based on patterns learned from training data. Unlike traditional ML that classifies or predicts, GenAI generates.</p>
+
+  <div class="split-diagram">
+    <div class="half left">
+      <h4 style="color: var(--accent-blue);">Traditional ML</h4>
+      <ul>
+        <li>Classifies, predicts, detects</li>
+        <li>Input → Label/Number</li>
+        <li>"Is this a cat?" → Yes/No</li>
+        <li>"What's the price?" → $350K</li>
+        <li>Discriminative models</li>
+      </ul>
+    </div>
+    <div class="half right">
+      <h4 style="color: var(--accent-teal);">Generative AI</h4>
+      <ul>
+        <li>Creates new content</li>
+        <li>Input → New text/image/code</li>
+        <li>"Write a poem about cats" → 🐱📝</li>
+        <li>"Generate a house image" → 🏠🖼️</li>
+        <li>Generative models (LLMs, diffusion)</li>
+      </ul>
+    </div>
+  </div>
+
+  <h4>Types of Generative AI Models</h4>
+  <table>
+    <tr><th>Model Type</th><th>What It Generates</th><th>Architecture</th><th>Example</th></tr>
+    <tr><td>Large Language Models (LLMs)</td><td>Text, code, conversation</td><td>Transformer</td><td>Claude, Llama, Amazon Titan Text</td></tr>
+    <tr><td>Image Generation</td><td>Images from text prompts</td><td>Diffusion, GAN</td><td>Stable Diffusion, Amazon Titan Image, DALL-E</td></tr>
+    <tr><td>Multimodal Models</td><td>Text + images + more</td><td>Transformer variants</td><td>Claude (text + vision), GPT-4o</td></tr>
+    <tr><td>Embedding Models</td><td>Vector representations of text</td><td>Transformer encoder</td><td>Amazon Titan Embeddings, Cohere Embed</td></tr>
+    <tr><td>Code Generation</td><td>Source code</td><td>Transformer</td><td>Amazon Q Developer, CodeLlama</td></tr>
+  </table>
+</div>
+
+<div class="section" id="foundation-models">
+  <h3>Foundation Models (FMs)</h3>
+  <p>Large AI models pre-trained on massive datasets that can be adapted to many tasks. They are the "foundation" you build on.</p>
+
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-title">🏗️ Key Characteristics</div>
+      <div class="card-body">
+        • Trained on massive, diverse datasets (internet-scale)<br>
+        • General-purpose — adaptable to many tasks<br>
+        • Very expensive to train from scratch ($millions)<br>
+        • Can be fine-tuned or used via prompts<br>
+        • Billions of parameters
+      </div>
+    </div>
+    <div class="card green">
+      <div class="card-title">📦 Foundation Models on Bedrock</div>
+      <div class="card-body">
+        • <strong>Amazon Titan</strong> — AWS's own FMs (text, image, embeddings)<br>
+        • <strong>Anthropic Claude</strong> — Advanced reasoning, long context<br>
+        • <strong>Meta Llama</strong> — Open-source LLM family<br>
+        • <strong>Mistral AI</strong> — Efficient, high-performance<br>
+        • <strong>Cohere</strong> — Text generation & embeddings<br>
+        • <strong>Stability AI</strong> — Image generation (Stable Diffusion)<br>
+        • <strong>AI21 Labs</strong> — Jurassic models
+      </div>
+    </div>
+    <div class="card red">
+      <div class="card-title">⚙️ How to Use FMs</div>
+      <div class="card-body">
+        1. <strong>Prompt Engineering</strong> — craft inputs to get desired outputs (cheapest, fastest)<br>
+        2. <strong>RAG</strong> — augment with your own data (no retraining)<br>
+        3. <strong>Fine-Tuning</strong> — retrain on your specific data (more effort)<br>
+        4. <strong>Continued Pre-Training</strong> — extend training with domain data (most effort)
+      </div>
+    </div>
+  </div>
+
+  <div class="tip">The exam expects you to know WHEN to use each approach: Prompt engineering first (cheapest) → RAG if you need external knowledge → Fine-tuning if you need specialized behavior.</div>
+</div>
+
+<div class="section" id="transformers">
+  <h3>Transformers & Attention Mechanism</h3>
+  <p>The architecture behind all modern LLMs. You don't need to code it, but understand the concepts.</p>
+
+  <table>
+    <tr><th>Concept</th><th>What It Means</th><th>Why It Matters</th></tr>
+    <tr><td><span class="badge purple">Transformer</span></td><td>Neural network architecture that processes all input tokens in parallel</td><td>Foundation of all modern LLMs (GPT, Claude, Llama)</td></tr>
+    <tr><td><span class="badge green">Self-Attention</span></td><td>Model weighs the importance of each word relative to every other word</td><td>Understands context: "bank" in "river bank" vs "bank account"</td></tr>
+    <tr><td><span class="badge orange">Tokens</span></td><td>Pieces of text (words, subwords, characters) the model processes</td><td>Models have token limits (context window). Pricing is per token.</td></tr>
+    <tr><td><span class="badge red">Context Window</span></td><td>Maximum number of tokens a model can process at once</td><td>Larger = can handle longer documents. Claude = up to 200K tokens.</td></tr>
+    <tr><td><span class="badge blue">Parameters</span></td><td>Internal weights learned during training (billions in LLMs)</td><td>More parameters ≈ more capable but more expensive to run.</td></tr>
+    <tr><td><span class="badge teal">Encoder</span></td><td>Processes input and creates representations</td><td>Used for understanding tasks (classification, embeddings).</td></tr>
+    <tr><td><span class="badge pink">Decoder</span></td><td>Generates output token by token</td><td>Used for generation tasks (text, code). GPT = decoder-only.</td></tr>
+    <tr><td><span class="badge purple">Temperature</span></td><td>Controls randomness of output (0 = deterministic, 1 = creative)</td><td>Low temp = factual/consistent. High temp = creative/varied.</td></tr>
+    <tr><td><span class="badge green">Top-p / Top-k</span></td><td>Controls which tokens are considered for next prediction</td><td>Another way to control output diversity.</td></tr>
+  </table>
+
+  <div class="warn">Temperature is a very common exam topic. Low temperature (0-0.2) = factual, consistent answers. High temperature (0.7-1.0) = creative, diverse outputs.</div>
+</div>
+
+<div class="section" id="prompt-engineering">
+  <h3>Prompt Engineering (HEAVILY TESTED)</h3>
+  <p>The art of crafting inputs to get the best outputs from a foundation model. No retraining needed.</p>
+
+  <h4>Prompt Techniques</h4>
+  <table>
+    <tr><th>Technique</th><th>Description</th><th>Example</th></tr>
+    <tr><td><span class="badge purple">Zero-Shot</span></td><td>Ask the model directly with no examples</td><td>"Classify this review as positive or negative: 'Great product!'"</td></tr>
+    <tr><td><span class="badge green">Few-Shot</span></td><td>Provide a few examples before the actual task</td><td>"Review: 'Love it' → Positive. Review: 'Terrible' → Negative. Review: 'Amazing quality' → ?"</td></tr>
+    <tr><td><span class="badge orange">Chain-of-Thought</span></td><td>Ask the model to reason step by step</td><td>"Solve this math problem. Show your reasoning step by step."</td></tr>
+    <tr><td><span class="badge red">System Prompt</span></td><td>Set the model's role/behavior/constraints</td><td>"You are a helpful customer service agent. Only answer questions about our products."</td></tr>
+    <tr><td><span class="badge blue">Retrieval-Augmented</span></td><td>Include retrieved context in the prompt (RAG)</td><td>"Based on the following document: [context]... Answer: ..."</td></tr>
+  </table>
+
+  <h4>Prompt Best Practices</h4>
+  <div class="card-grid">
+    <div class="card green">
+      <div class="card-title">✅ Do</div>
+      <div class="card-body">
+        • Be specific and clear<br>
+        • Provide context and constraints<br>
+        • Use examples (few-shot)<br>
+        • Specify output format<br>
+        • Break complex tasks into steps<br>
+        • Set a role/persona
+      </div>
+    </div>
+    <div class="card red">
+      <div class="card-title">❌ Don't</div>
+      <div class="card-body">
+        • Be vague or ambiguous<br>
+        • Assume the model knows your context<br>
+        • Use overly complex prompts<br>
+        • Ignore output format specification<br>
+        • Skip testing different prompts<br>
+        • Rely on a single prompt attempt
+      </div>
+    </div>
+  </div>
+
+  <div class="tip">Zero-shot = no examples. Few-shot = a few examples. Chain-of-thought = "think step by step." These three are the most tested prompt techniques.</div>
+</div>
+
+<div class="section" id="rag">
+  <h3>RAG — Retrieval-Augmented Generation (KEY TOPIC)</h3>
+  <p>A technique that combines a foundation model with external knowledge retrieval. The model doesn't need retraining — it just gets relevant context at query time.</p>
+
+  <div class="flow">
+    <div class="step"><div class="icon">❓</div><strong>User Query</strong>"What's our refund policy?"</div>
+    <div class="connector">→</div>
+    <div class="step" style="border-color: var(--accent-teal);"><div class="icon">🔍</div><strong>Retrieve</strong>Search knowledge base<br>for relevant docs</div>
+    <div class="connector">→</div>
+    <div class="step" style="border-color: var(--accent-orange);"><div class="icon">📎</div><strong>Augment</strong>Add retrieved context<br>to the prompt</div>
+    <div class="connector">→</div>
+    <div class="step" style="border-color: var(--accent-red);"><div class="icon">🤖</div><strong>Generate</strong>FM generates answer<br>using context</div>
+    <div class="connector">→</div>
+    <div class="step" style="border-color: var(--accent-teal);"><div class="icon">💬</div><strong>Response</strong>Grounded, accurate<br>answer</div>
+  </div>
+
+  <h4>RAG Key Concepts</h4>
+  <table>
+    <tr><th>Concept</th><th>What It Means</th></tr>
+    <tr><td>Knowledge Base</td><td>Your data source (documents, FAQs, manuals) that the model retrieves from</td></tr>
+    <tr><td>Embeddings</td><td>Convert text into numerical vectors so similar content can be found</td></tr>
+    <tr><td>Vector Database</td><td>Stores embeddings for fast similarity search (e.g., Amazon OpenSearch, Pinecone)</td></tr>
+    <tr><td>Chunking</td><td>Breaking documents into smaller pieces for better retrieval</td></tr>
+    <tr><td>Semantic Search</td><td>Finding content by meaning (not just keywords)</td></tr>
+    <tr><td>Grounding</td><td>Ensuring model responses are based on factual, retrieved information</td></tr>
+    <tr><td>Hallucination</td><td>When the model generates plausible but incorrect/fabricated information</td></tr>
+  </table>
+
+  <h4>Why RAG vs Fine-Tuning?</h4>
+  <table>
+    <tr><th>Feature</th><th>RAG</th><th>Fine-Tuning</th></tr>
+    <tr><td>When to use</td><td>Need up-to-date or proprietary knowledge</td><td>Need to change model behavior/style</td></tr>
+    <tr><td>Data freshness</td><td>Always current (retrieves live data)</td><td>Frozen at training time</td></tr>
+    <tr><td>Cost</td><td>Lower (no retraining)</td><td>Higher (compute for training)</td></tr>
+    <tr><td>Effort</td><td>Set up knowledge base + embeddings</td><td>Prepare training data + train</td></tr>
+    <tr><td>Hallucination</td><td>Reduced (grounded in retrieved docs)</td><td>Can still hallucinate</td></tr>
+    <tr><td>AWS Service</td><td>Bedrock Knowledge Bases</td><td>Bedrock Custom Models / SageMaker</td></tr>
+  </table>
+
+  <div class="tip">RAG = "give the model your data at query time." Fine-tuning = "retrain the model on your data." The exam loves asking when to use which.</div>
+</div>
+
+<div class="section" id="fine-tuning">
+  <h3>Fine-Tuning & Model Customization</h3>
+
+  <table>
+    <tr><th>Approach</th><th>Description</th><th>Effort</th><th>Cost</th><th>When to Use</th></tr>
+    <tr><td><span class="badge purple">Prompt Engineering</span></td><td>Craft better prompts</td><td>🟢 Low</td><td>🟢 Low</td><td>First approach. Quick iteration.</td></tr>
+    <tr><td><span class="badge green">RAG</span></td><td>Retrieve external knowledge</td><td>🟡 Medium</td><td>🟡 Medium</td><td>Need proprietary/current data.</td></tr>
+    <tr><td><span class="badge orange">Fine-Tuning</span></td><td>Retrain model on your data</td><td>🔴 High</td><td>🔴 High</td><td>Need specialized behavior/style.</td></tr>
+    <tr><td><span class="badge red">Continued Pre-Training</span></td><td>Extend base training with domain data</td><td>🔴 Very High</td><td>🔴 Very High</td><td>Need deep domain expertise.</td></tr>
+  </table>
+
+  <h4>Key GenAI Challenges</h4>
+  <table>
+    <tr><th>Challenge</th><th>Description</th><th>Mitigation</th></tr>
+    <tr><td>Hallucination</td><td>Model generates false but convincing information</td><td>RAG, grounding, guardrails, human review, lower temperature</td></tr>
+    <tr><td>Toxicity</td><td>Model generates harmful, offensive, or biased content</td><td>Guardrails, content filters, RLHF, safety training</td></tr>
+    <tr><td>Prompt Injection</td><td>Malicious prompts that trick the model into ignoring instructions</td><td>Input validation, guardrails, system prompts</td></tr>
+    <tr><td>Data Privacy</td><td>Model may memorize and leak training data</td><td>Data anonymization, access controls, VPC endpoints</td></tr>
+    <tr><td>Cost</td><td>Token-based pricing can be expensive at scale</td><td>Caching, smaller models, prompt optimization</td></tr>
+    <tr><td>Latency</td><td>Large models can be slow to respond</td><td>Smaller models, streaming, provisioned throughput</td></tr>
+  </table>
+
+  <div class="warn">Hallucination is the #1 GenAI challenge on the exam. Know that RAG + grounding + guardrails are the primary mitigations.</div>
+</div>
+
+<!-- ==================== DOMAIN 3: APPLICATIONS ==================== -->
+<div class="section" id="bedrock">
+  <h2>🏗️ Domain 3: Applications of Foundation Models (28%)</h2>
+
+  <h3>Amazon Bedrock (MOST IMPORTANT SERVICE)</h3>
+  <p>Fully managed service to access foundation models via API. The central service for building GenAI apps on AWS.</p>
+
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-title">🎯 What Bedrock Does</div>
+      <div class="card-body">
+        • Access multiple FMs through a single API<br>
+        • No infrastructure to manage<br>
+        • Pay per token (input + output)<br>
+        • Your data stays private (not used to train models)<br>
+        • Runs within your AWS account
+      </div>
+    </div>
+    <div class="card green">
+      <div class="card-title">🧩 Bedrock Features</div>
+      <div class="card-body">
+        • <strong>Knowledge Bases</strong> — RAG with your data (S3, web crawlers)<br>
+        • <strong>Agents</strong> — Autonomous task execution with tool use<br>
+        • <strong>Guardrails</strong> — Content filtering & safety controls<br>
+        • <strong>Custom Models</strong> — Fine-tune FMs on your data<br>
+        • <strong>Model Evaluation</strong> — Compare model performance<br>
+        • <strong>Provisioned Throughput</strong> — Guaranteed capacity
+      </div>
+    </div>
+    <div class="card red">
+      <div class="card-title">📊 Bedrock Model Providers</div>
+      <div class="card-body">
+        • <strong>Amazon Titan</strong> — Text, Image, Embeddings, Multimodal<br>
+        • <strong>Anthropic Claude</strong> — Advanced reasoning, 200K context<br>
+        • <strong>Meta Llama</strong> — Open-source, various sizes<br>
+        • <strong>Mistral AI</strong> — Efficient, multilingual<br>
+        • <strong>Cohere</strong> — Command (text) + Embed (embeddings)<br>
+        • <strong>Stability AI</strong> — Stable Diffusion (images)<br>
+        • <strong>AI21 Labs</strong> — Jurassic (text)
+      </div>
+    </div>
+  </div>
+
+  <h4>Bedrock Features Deep Dive</h4>
+  <table>
+    <tr><th>Feature</th><th>What It Does</th><th>Key Detail</th></tr>
+    <tr><td><span class="badge purple">Knowledge Bases</span></td><td>RAG — connect FMs to your data sources</td><td>Supports S3, web crawlers, Confluence, SharePoint. Uses vector embeddings.</td></tr>
+    <tr><td><span class="badge green">Agents</span></td><td>Autonomous AI that can take actions</td><td>Can call APIs, query databases, execute multi-step tasks. Uses tool/function calling.</td></tr>
+    <tr><td><span class="badge red">Guardrails</span></td><td>Safety & content filtering</td><td>Block harmful content, PII filtering, topic denial, word filters. Apply to any FM.</td></tr>
+    <tr><td><span class="badge orange">Model Evaluation</span></td><td>Compare FM performance</td><td>Automatic (ROUGE, BERTScore) or human evaluation. Compare models side-by-side.</td></tr>
+    <tr><td><span class="badge blue">Custom Models</span></td><td>Fine-tune FMs on your data</td><td>Provide training data → get a customized model. Data stays in your account.</td></tr>
+    <tr><td><span class="badge teal">Provisioned Throughput</span></td><td>Guaranteed model capacity</td><td>For production workloads needing consistent performance. Pay per model unit.</td></tr>
+    <tr><td><span class="badge pink">Watermark Detection</span></td><td>Detect AI-generated content</td><td>Amazon Titan models can embed invisible watermarks in generated content.</td></tr>
+  </table>
+
+  <div class="tip">Bedrock Knowledge Bases = RAG. Bedrock Agents = autonomous actions. Bedrock Guardrails = safety. These three are the most tested Bedrock features.</div>
+</div>
+
+<div class="section" id="sagemaker">
+  <h3>Amazon SageMaker</h3>
+  <p>Fully managed service to build, train, and deploy ML models. More hands-on than Bedrock — for data scientists and ML engineers.</p>
+
+  <table>
+    <tr><th>SageMaker Feature</th><th>What It Does</th><th>Key Detail</th></tr>
+    <tr><td><span class="badge purple">SageMaker Studio</span></td><td>IDE for ML</td><td>Web-based IDE for the full ML workflow. Notebooks, experiments, pipelines.</td></tr>
+    <tr><td><span class="badge green">SageMaker Canvas</span></td><td>No-code ML</td><td>Build ML models without writing code. Visual, drag-and-drop interface.</td></tr>
+    <tr><td><span class="badge orange">SageMaker Autopilot</span></td><td>AutoML</td><td>Automatically builds, trains, and tunes ML models. Chooses best algorithm.</td></tr>
+    <tr><td><span class="badge red">SageMaker JumpStart</span></td><td>Pre-trained model hub</td><td>Access 300+ pre-trained models. Deploy with one click. Fine-tune.</td></tr>
+    <tr><td><span class="badge blue">SageMaker Clarify</span></td><td>Bias detection & explainability</td><td>Detect bias in data & models. Explain predictions (SHAP values).</td></tr>
+    <tr><td><span class="badge teal">SageMaker Pipelines</span></td><td>ML CI/CD</td><td>Automate ML workflows. Build, train, deploy pipelines.</td></tr>
+    <tr><td><span class="badge pink">SageMaker Ground Truth</span></td><td>Data labeling</td><td>Label training data using humans + ML. Active learning.</td></tr>
+    <tr><td><span class="badge purple">SageMaker Model Monitor</span></td><td>Monitor deployed models</td><td>Detect data drift, model quality degradation in production.</td></tr>
+    <tr><td><span class="badge green">SageMaker Feature Store</span></td><td>Feature management</td><td>Store, share, and reuse ML features across teams.</td></tr>
+    <tr><td><span class="badge orange">SageMaker Training</span></td><td>Train models at scale</td><td>Managed training infrastructure. Distributed training. Spot instances.</td></tr>
+    <tr><td><span class="badge red">SageMaker Endpoints</span></td><td>Deploy models</td><td>Real-time inference endpoints. Auto-scaling. A/B testing.</td></tr>
+  </table>
+
+  <h4>Bedrock vs SageMaker — When to Use Which?</h4>
+  <table>
+    <tr><th>Criteria</th><th>Amazon Bedrock</th><th>Amazon SageMaker</th></tr>
+    <tr><td>Best for</td><td>Using pre-built foundation models</td><td>Building custom ML models from scratch</td></tr>
+    <tr><td>Skill level</td><td>Developers, business users</td><td>Data scientists, ML engineers</td></tr>
+    <tr><td>Customization</td><td>Prompt engineering, RAG, fine-tuning</td><td>Full control over training, algorithms, data</td></tr>
+    <tr><td>Infrastructure</td><td>Fully managed, serverless</td><td>Managed but you configure instances</td></tr>
+    <tr><td>Use case</td><td>GenAI apps, chatbots, summarization</td><td>Custom models, specialized ML, research</td></tr>
+    <tr><td>No-code option</td><td>Bedrock console / playground</td><td>SageMaker Canvas</td></tr>
+  </table>
+
+  <div class="tip">Bedrock = "I want to USE foundation models." SageMaker = "I want to BUILD my own models." The exam tests this distinction heavily.</div>
+</div>
+
+<div class="section" id="ai-services">
+  <h3>AWS AI Services (Pre-trained, Ready to Use)</h3>
+  <p>No ML expertise needed. Just call an API. These are pre-trained models packaged as services.</p>
+
+  <table>
+    <tr><th>Service</th><th>Category</th><th>What It Does</th><th>Use Case</th></tr>
+    <tr><td><span class="badge purple">Amazon Rekognition</span></td><td>Vision</td><td>Image & video analysis</td><td>Face detection, object detection, content moderation, celebrity recognition</td></tr>
+    <tr><td><span class="badge green">Amazon Comprehend</span></td><td>NLP</td><td>Text analysis</td><td>Sentiment analysis, entity extraction, language detection, topic modeling</td></tr>
+    <tr><td><span class="badge orange">Amazon Transcribe</span></td><td>Speech</td><td>Speech → Text</td><td>Meeting transcription, subtitles, call center analytics</td></tr>
+    <tr><td><span class="badge red">Amazon Polly</span></td><td>Speech</td><td>Text → Speech</td><td>Voice assistants, audiobooks, accessibility</td></tr>
+    <tr><td><span class="badge blue">Amazon Translate</span></td><td>NLP</td><td>Language translation</td><td>Real-time translation, localization</td></tr>
+    <tr><td><span class="badge teal">Amazon Lex</span></td><td>Conversational</td><td>Build chatbots</td><td>Customer service bots, IVR systems. Powers Alexa.</td></tr>
+    <tr><td><span class="badge pink">Amazon Textract</span></td><td>Document</td><td>Extract text from documents</td><td>OCR, form extraction, table extraction from scanned docs</td></tr>
+    <tr><td><span class="badge purple">Amazon Kendra</span></td><td>Search</td><td>Intelligent enterprise search</td><td>Search across documents, FAQs, knowledge bases using NLP</td></tr>
+    <tr><td><span class="badge green">Amazon Personalize</span></td><td>Recommendations</td><td>Real-time recommendations</td><td>Product recommendations, content personalization</td></tr>
+    <tr><td><span class="badge orange">Amazon Forecast</span></td><td>Time Series</td><td>Time-series forecasting</td><td>Demand forecasting, inventory planning, financial forecasting</td></tr>
+    <tr><td><span class="badge red">Amazon Fraud Detector</span></td><td>Fraud</td><td>Detect online fraud</td><td>Payment fraud, fake accounts, account takeover</td></tr>
+    <tr><td><span class="badge blue">Amazon Q Business</span></td><td>Enterprise AI</td><td>AI assistant for business</td><td>Answer questions from company data, summarize docs</td></tr>
+    <tr><td><span class="badge teal">Amazon Q Developer</span></td><td>Developer AI</td><td>AI coding assistant</td><td>Code generation, debugging, code transformation</td></tr>
+    <tr><td><span class="badge pink">AWS HealthScribe</span></td><td>Healthcare</td><td>Medical transcription</td><td>Generate clinical notes from patient-doctor conversations</td></tr>
+    <tr><td><span class="badge purple">Amazon Comprehend Medical</span></td><td>Healthcare NLP</td><td>Extract medical info from text</td><td>Identify medications, conditions, treatments from clinical text</td></tr>
+    <tr><td><span class="badge green">AWS DeepRacer</span></td><td>Learning</td><td>Reinforcement learning</td><td>Learn RL through autonomous racing car</td></tr>
+  </table>
+
+  <div class="tip">Rekognition = images/video. Comprehend = text/NLP. Transcribe = speech→text. Polly = text→speech. Lex = chatbots. Textract = documents. Memorize these mappings.</div>
+</div>
+
+<div class="section" id="agents-tools">
+  <h3>Bedrock Agents & Tool Use</h3>
+  <p>Agents are autonomous AI systems that can plan, reason, and take actions to complete tasks.</p>
+
+  <div class="flow">
+    <div class="step"><div class="icon">👤</div><strong>User Request</strong>"Book a flight to NYC"</div>
+    <div class="connector">→</div>
+    <div class="step" style="border-color: var(--accent-purple);"><div class="icon">🧠</div><strong>Agent Reasons</strong>Plans steps needed</div>
+    <div class="connector">→</div>
+    <div class="step" style="border-color: var(--accent-teal);"><div class="icon">🔧</div><strong>Calls Tools</strong>APIs, databases,<br>Lambda functions</div>
+    <div class="connector">→</div>
+    <div class="step" style="border-color: var(--accent-orange);"><div class="icon">🔄</div><strong>Iterates</strong>Refines based<br>on results</div>
+    <div class="connector">→</div>
+    <div class="step" style="border-color: var(--accent-teal);"><div class="icon">✅</div><strong>Completes</strong>Returns final<br>result to user</div>
+  </div>
+
+  <table>
+    <tr><th>Concept</th><th>What It Means</th></tr>
+    <tr><td>Agent</td><td>AI that can autonomously plan and execute multi-step tasks</td></tr>
+    <tr><td>Tool Use / Function Calling</td><td>Agent calls external APIs or functions to get information or take actions</td></tr>
+    <tr><td>Action Groups</td><td>Sets of APIs/Lambda functions the agent can invoke</td></tr>
+    <tr><td>Orchestration</td><td>Agent's ability to plan, sequence, and coordinate multiple steps</td></tr>
+    <tr><td>ReAct (Reason + Act)</td><td>Pattern where agent reasons about what to do, then acts, then observes results</td></tr>
+  </table>
+</div>
+
+<div class="section" id="genai-apps">
+  <h3>Building GenAI Applications on AWS</h3>
+
+  <h4>Common GenAI Use Cases</h4>
+  <table>
+    <tr><th>Use Case</th><th>Description</th><th>AWS Service</th></tr>
+    <tr><td>Chatbot / Virtual Assistant</td><td>Conversational AI for customer service</td><td>Bedrock + Knowledge Bases, Lex</td></tr>
+    <tr><td>Text Summarization</td><td>Condense long documents</td><td>Bedrock (Claude, Titan)</td></tr>
+    <tr><td>Code Generation</td><td>Generate, explain, debug code</td><td>Amazon Q Developer, Bedrock</td></tr>
+    <tr><td>Content Creation</td><td>Marketing copy, emails, articles</td><td>Bedrock (Claude, Titan)</td></tr>
+    <tr><td>Image Generation</td><td>Create images from text descriptions</td><td>Bedrock (Stable Diffusion, Titan Image)</td></tr>
+    <tr><td>Search & Q&A</td><td>Answer questions from company data</td><td>Bedrock Knowledge Bases, Kendra, Q Business</td></tr>
+    <tr><td>Data Extraction</td><td>Extract structured data from documents</td><td>Textract, Comprehend, Bedrock</td></tr>
+    <tr><td>Translation</td><td>Translate between languages</td><td>Amazon Translate, Bedrock</td></tr>
+    <tr><td>Personalization</td><td>Personalized recommendations</td><td>Amazon Personalize</td></tr>
+    <tr><td>Sentiment Analysis</td><td>Understand customer feelings</td><td>Amazon Comprehend, Bedrock</td></tr>
+  </table>
+
+  <h4>GenAI Application Architecture Pattern</h4>
+  <div class="info-box">
+    <p>🔹 <strong style="color: var(--accent-blue);">User</strong> → API Gateway → Lambda → <strong style="color: var(--accent-blue);">Bedrock</strong> (FM) → Response</p>
+    <p>🔹 <strong style="color: var(--accent-teal);">With RAG:</strong> User → Lambda → Bedrock Knowledge Base → Vector DB → FM → Grounded Response</p>
+    <p>🔹 <strong style="color: var(--accent-orange);">With Agent:</strong> User → Bedrock Agent → [Reasons] → Calls Lambda/APIs → Returns Result</p>
+  </div>
+</div>
+
+<!-- ==================== DOMAIN 4: RESPONSIBLE AI ==================== -->
+<div class="section" id="responsible-ai">
+  <h2>⚖️ Domain 4: Guidelines for Responsible AI (14%)</h2>
+
+  <h3>AWS Responsible AI Dimensions</h3>
+  <p>AWS defines responsible AI through 8 core dimensions. Know all of them.</p>
+
+  <div class="pillars">
+    <div class="pillar"><div class="pillar-icon">⚖️</div><strong>Fairness</strong>Equitable treatment across groups</div>
+    <div class="pillar"><div class="pillar-icon">🔍</div><strong>Explainability</strong>Understand why the model decided</div>
+    <div class="pillar"><div class="pillar-icon">🔒</div><strong>Privacy & Security</strong>Protect data & models</div>
+    <div class="pillar"><div class="pillar-icon">🛡️</div><strong>Safety</strong>Prevent harmful outputs</div>
+    <div class="pillar"><div class="pillar-icon">🎛️</div><strong>Controllability</strong>Monitor & steer AI behavior</div>
+    <div class="pillar"><div class="pillar-icon">✅</div><strong>Veracity & Robustness</strong>Correct outputs, even under adversarial input</div>
+    <div class="pillar"><div class="pillar-icon">📋</div><strong>Governance</strong>Best practices in AI supply chain</div>
+    <div class="pillar"><div class="pillar-icon">👁️</div><strong>Transparency</strong>Stakeholders can make informed choices</div>
+  </div>
+</div>
+
+<div class="section" id="bias-fairness">
+  <h3>Bias & Fairness</h3>
+
+  <h4>Types of Bias</h4>
+  <table>
+    <tr><th>Bias Type</th><th>Description</th><th>Example</th></tr>
+    <tr><td><span class="badge red">Selection Bias</span></td><td>Training data doesn't represent the real population</td><td>Training a hiring model only on data from one demographic</td></tr>
+    <tr><td><span class="badge orange">Measurement Bias</span></td><td>Data collection method introduces systematic errors</td><td>Using different criteria to evaluate different groups</td></tr>
+    <tr><td><span class="badge purple">Confirmation Bias</span></td><td>Model reinforces existing stereotypes in data</td><td>Loan model denying minorities because historical data was biased</td></tr>
+    <tr><td><span class="badge blue">Sampling Bias</span></td><td>Some groups are over/under-represented in training data</td><td>Medical AI trained mostly on one ethnicity</td></tr>
+    <tr><td><span class="badge green">Algorithmic Bias</span></td><td>The algorithm itself introduces unfairness</td><td>Model optimizing for majority class, ignoring minorities</td></tr>
+    <tr><td><span class="badge teal">Label Bias</span></td><td>Human labelers introduce their own biases</td><td>Inconsistent labeling across annotators</td></tr>
+  </table>
+
+  <h4>Bias Detection & Mitigation on AWS</h4>
+  <table>
+    <tr><th>Tool</th><th>What It Does</th><th>When to Use</th></tr>
+    <tr><td><span class="badge purple">SageMaker Clarify</span></td><td>Detect bias in data AND models. Explain predictions.</td><td>Pre-training (data bias) and post-training (model bias)</td></tr>
+    <tr><td><span class="badge green">Bedrock Guardrails</span></td><td>Filter harmful/biased outputs</td><td>At inference time — block biased responses</td></tr>
+    <tr><td><span class="badge orange">Bedrock Model Evaluation</span></td><td>Evaluate model fairness across groups</td><td>Compare models for fairness metrics</td></tr>
+    <tr><td><span class="badge blue">Human Review</span></td><td>Human-in-the-loop evaluation</td><td>Validate model outputs for sensitive use cases</td></tr>
+  </table>
+
+  <h4>Bias Metrics (SageMaker Clarify)</h4>
+  <table>
+    <tr><th>Metric</th><th>What It Measures</th></tr>
+    <tr><td>Class Imbalance (CI)</td><td>Whether one group is over/under-represented in training data</td></tr>
+    <tr><td>Disparate Impact (DI)</td><td>Ratio of positive outcomes between groups (should be close to 1)</td></tr>
+    <tr><td>Demographic Parity</td><td>Whether positive prediction rates are equal across groups</td></tr>
+    <tr><td>Conditional Demographic Disparity (CDD)</td><td>Disparity in outcomes after controlling for legitimate factors</td></tr>
+  </table>
+
+  <div class="tip">SageMaker Clarify = THE tool for bias detection and explainability. It works both pre-training (data) and post-training (model). This is heavily tested.</div>
+</div>
+
+<div class="section" id="explainability">
+  <h3>Explainability & Transparency</h3>
+
+  <table>
+    <tr><th>Concept</th><th>What It Means</th><th>AWS Tool</th></tr>
+    <tr><td><span class="badge purple">Explainability</span></td><td>Understanding WHY a model made a specific prediction</td><td>SageMaker Clarify (SHAP values)</td></tr>
+    <tr><td><span class="badge green">Interpretability</span></td><td>How easily a human can understand the model's logic</td><td>Simple models (decision trees) are more interpretable</td></tr>
+    <tr><td><span class="badge orange">SHAP Values</span></td><td>Show how much each feature contributed to a prediction</td><td>SageMaker Clarify generates SHAP explanations</td></tr>
+    <tr><td><span class="badge red">Feature Importance</span></td><td>Which input features matter most to the model</td><td>SageMaker Clarify, model-specific tools</td></tr>
+    <tr><td><span class="badge blue">Model Cards</span></td><td>Documentation about a model's purpose, performance, limitations</td><td>SageMaker Model Cards</td></tr>
+    <tr><td><span class="badge teal">Transparency</span></td><td>Users know they're interacting with AI and understand its limitations</td><td>Disclosure, documentation, model cards</td></tr>
+  </table>
+
+  <div class="warn">SHAP (SHapley Additive exPlanations) is the key explainability method on AWS. SageMaker Clarify uses SHAP to explain individual predictions.</div>
+</div>
+
+<div class="section" id="guardrails">
+  <h3>Guardrails & Safety</h3>
+
+  <h4>Amazon Bedrock Guardrails</h4>
+  <table>
+    <tr><th>Guardrail Type</th><th>What It Does</th><th>Example</th></tr>
+    <tr><td><span class="badge red">Content Filters</span></td><td>Block harmful content categories</td><td>Filter hate speech, violence, sexual content, insults</td></tr>
+    <tr><td><span class="badge orange">Denied Topics</span></td><td>Block specific topics entirely</td><td>Prevent model from discussing competitors or giving legal advice</td></tr>
+    <tr><td><span class="badge purple">Word Filters</span></td><td>Block specific words or phrases</td><td>Block profanity, competitor names, internal terms</td></tr>
+    <tr><td><span class="badge green">PII Filtering</span></td><td>Detect and redact personal information</td><td>Mask SSN, email, phone numbers in inputs/outputs</td></tr>
+    <tr><td><span class="badge blue">Contextual Grounding</span></td><td>Check if response is grounded in provided context</td><td>Reduce hallucinations by verifying against source documents</td></tr>
+  </table>
+
+  <h4>Other Safety Measures</h4>
+  <table>
+    <tr><th>Measure</th><th>Description</th></tr>
+    <tr><td>RLHF (Reinforcement Learning from Human Feedback)</td><td>Training technique to align model outputs with human preferences and safety</td></tr>
+    <tr><td>Red Teaming</td><td>Deliberately trying to break/exploit the model to find vulnerabilities</td></tr>
+    <tr><td>Human-in-the-Loop</td><td>Human reviews AI outputs before they reach end users</td></tr>
+    <tr><td>A/B Testing</td><td>Compare different model versions to evaluate safety and quality</td></tr>
+    <tr><td>Watermarking</td><td>Embed invisible markers in AI-generated content (Amazon Titan)</td></tr>
+    <tr><td>Content Moderation</td><td>Review and filter AI outputs for policy compliance</td></tr>
+  </table>
+
+  <div class="tip">Bedrock Guardrails can be applied to ANY foundation model on Bedrock. They work on both input (user prompts) and output (model responses).</div>
+</div>
+
+<!-- ==================== DOMAIN 5: SECURITY ==================== -->
+<div class="section" id="security">
+  <h2>🔐 Domain 5: Security, Compliance & Governance (14%)</h2>
+
+  <h3>Security for AI on AWS</h3>
+  <table>
+    <tr><th>Security Aspect</th><th>What to Know</th><th>AWS Service/Feature</th></tr>
+    <tr><td><span class="badge red">Data Encryption</span></td><td>Encrypt data at rest and in transit</td><td>AWS KMS, S3 encryption, TLS/SSL</td></tr>
+    <tr><td><span class="badge purple">Access Control</span></td><td>Control who can access AI resources</td><td>IAM policies, roles, least privilege</td></tr>
+    <tr><td><span class="badge green">Network Security</span></td><td>Isolate AI workloads</td><td>VPC, VPC endpoints, private subnets</td></tr>
+    <tr><td><span class="badge orange">Data Privacy</span></td><td>Protect sensitive training/inference data</td><td>Bedrock: data not used to train base models. VPC endpoints.</td></tr>
+    <tr><td><span class="badge blue">Model Security</span></td><td>Protect model artifacts and endpoints</td><td>IAM, SageMaker endpoint policies, encryption</td></tr>
+    <tr><td><span class="badge teal">Audit & Logging</span></td><td>Track all AI-related API calls</td><td>CloudTrail, CloudWatch Logs</td></tr>
+    <tr><td><span class="badge pink">Prompt Security</span></td><td>Prevent prompt injection attacks</td><td>Bedrock Guardrails, input validation</td></tr>
+  </table>
+
+  <h4>Bedrock Security Features</h4>
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-title">🔒 Data Privacy in Bedrock</div>
+      <div class="card-body">
+        • Your data is NOT used to train base foundation models<br>
+        • Data encrypted at rest and in transit<br>
+        • Use VPC endpoints for private connectivity<br>
+        • Data stays in your AWS Region<br>
+        • Customer-managed KMS keys supported
+      </div>
+    </div>
+    <div class="card green">
+      <div class="card-title">🛡️ Access Control</div>
+      <div class="card-body">
+        • IAM policies control who can invoke models<br>
+        • Resource-based policies for fine-grained access<br>
+        • Service-linked roles for Bedrock features<br>
+        • CloudTrail logs all Bedrock API calls<br>
+        • Model access must be explicitly enabled per model
+      </div>
+    </div>
+  </div>
+
+  <div class="tip">Key exam point: Bedrock does NOT use your data to train or improve base models. Your data stays private within your account.</div>
+</div>
+
+<div class="section" id="governance">
+  <h3>AI Governance & Compliance</h3>
+
+  <table>
+    <tr><th>Concept</th><th>What It Means</th><th>AWS Tool</th></tr>
+    <tr><td>Data Governance</td><td>Policies for how data is collected, stored, used, shared</td><td>AWS Lake Formation, IAM, S3 policies</td></tr>
+    <tr><td>Model Governance</td><td>Track model versions, approvals, lineage</td><td>SageMaker Model Registry, Model Cards</td></tr>
+    <tr><td>Compliance</td><td>Meet regulatory requirements (GDPR, HIPAA, etc.)</td><td>AWS Artifact, AWS Config, compliance programs</td></tr>
+    <tr><td>Audit Trail</td><td>Record all actions for accountability</td><td>CloudTrail, CloudWatch</td></tr>
+    <tr><td>Data Lineage</td><td>Track where data came from and how it was transformed</td><td>SageMaker Pipelines, AWS Glue</td></tr>
+    <tr><td>Model Registry</td><td>Central catalog of model versions with approval workflows</td><td>SageMaker Model Registry</td></tr>
+    <tr><td>Model Cards</td><td>Documentation of model purpose, performance, limitations, intended use</td><td>SageMaker Model Cards</td></tr>
+    <tr><td>Data Drift</td><td>When production data changes from training data over time</td><td>SageMaker Model Monitor</td></tr>
+    <tr><td>Model Drift</td><td>When model performance degrades over time</td><td>SageMaker Model Monitor</td></tr>
+  </table>
+
+  <h4>Key Compliance Frameworks</h4>
+  <table>
+    <tr><th>Framework</th><th>What It Covers</th></tr>
+    <tr><td>GDPR</td><td>EU data protection. Right to explanation, right to be forgotten, data minimization.</td></tr>
+    <tr><td>HIPAA</td><td>US healthcare data protection. PHI (Protected Health Information).</td></tr>
+    <tr><td>SOC 2</td><td>Security, availability, processing integrity, confidentiality, privacy.</td></tr>
+    <tr><td>ISO 27001</td><td>Information security management.</td></tr>
+    <tr><td>AI Act (EU)</td><td>EU regulation classifying AI systems by risk level.</td></tr>
+    <tr><td>NIST AI RMF</td><td>US framework for managing AI risks.</td></tr>
+  </table>
+
+  <div class="warn">Data drift and model drift are different. Data drift = input data changes. Model drift = model accuracy degrades. Both need monitoring (SageMaker Model Monitor).</div>
+</div>
+
+<!-- ==================== MASTER TABLE ==================== -->
+<div class="section" id="master-table">
+  <h2>📊 Master Service Reference Table</h2>
+  <p>Every AWS AI/ML service you need for AIF-C01, organized by category.</p>
+
+  <table>
+    <tr><th>Category</th><th>Service</th><th>One-Line Description</th></tr>
+    <!-- GENAI PLATFORM -->
+    <tr><td rowspan="3" class="cat-row cat-genai">✨ GenAI Platform</td><td>Amazon Bedrock</td><td>Access foundation models via API. RAG, agents, guardrails.</td></tr>
+    <tr><td>Amazon Q Business</td><td>AI assistant for enterprise (answers from company data).</td></tr>
+    <tr><td>Amazon Q Developer</td><td>AI coding assistant (code gen, debug, transform).</td></tr>
+    <!-- ML PLATFORM -->
+    <tr><td rowspan="6" class="cat-row cat-storage">🔬 ML Platform</td><td>SageMaker Studio</td><td>IDE for full ML workflow.</td></tr>
+    <tr><td>SageMaker Canvas</td><td>No-code ML model building.</td></tr>
+    <tr><td>SageMaker Autopilot</td><td>AutoML — auto-builds best model.</td></tr>
+    <tr><td>SageMaker JumpStart</td><td>Pre-trained model hub. One-click deploy.</td></tr>
+    <tr><td>SageMaker Clarify</td><td>Bias detection + explainability (SHAP).</td></tr>
+    <tr><td>SageMaker Ground Truth</td><td>Data labeling (human + ML).</td></tr>
+    <!-- VISION -->
+    <tr><td rowspan="2" class="cat-row cat-vision">👁️ Vision</td><td>Amazon Rekognition</td><td>Image/video analysis, face detection, content moderation.</td></tr>
+    <tr><td>Amazon Textract</td><td>Extract text & data from documents (OCR).</td></tr>
+    <!-- NLP -->
+    <tr><td rowspan="3" class="cat-row cat-nlp">📝 NLP</td><td>Amazon Comprehend</td><td>Sentiment, entities, language detection.</td></tr>
+    <tr><td>Amazon Translate</td><td>Language translation.</td></tr>
+    <tr><td>Amazon Kendra</td><td>Intelligent enterprise search.</td></tr>
+    <!-- SPEECH -->
+    <tr><td rowspan="2" class="cat-row cat-speech">🎤 Speech</td><td>Amazon Transcribe</td><td>Speech → Text.</td></tr>
+    <tr><td>Amazon Polly</td><td>Text → Speech.</td></tr>
+    <!-- CONVERSATIONAL -->
+    <tr><td class="cat-row cat-genai">💬 Conversational</td><td>Amazon Lex</td><td>Build chatbots. Powers Alexa.</td></tr>
+    <!-- RECOMMENDATIONS -->
+    <tr><td class="cat-row cat-storage">🎯 Recommendations</td><td>Amazon Personalize</td><td>Real-time personalized recommendations.</td></tr>
+    <!-- FORECASTING -->
+    <tr><td class="cat-row cat-nlp">📈 Forecasting</td><td>Amazon Forecast</td><td>Time-series forecasting.</td></tr>
+    <!-- FRAUD -->
+    <tr><td class="cat-row cat-speech">🚨 Fraud</td><td>Amazon Fraud Detector</td><td>Detect online fraud.</td></tr>
+    <!-- HEALTHCARE -->
+    <tr><td rowspan="2" class="cat-row cat-vision">🏥 Healthcare</td><td>Amazon Comprehend Medical</td><td>Extract medical info from text.</td></tr>
+    <tr><td>AWS HealthScribe</td><td>Medical transcription → clinical notes.</td></tr>
+    <!-- RESPONSIBLE AI -->
+    <tr><td rowspan="4" class="cat-row cat-genai">⚖️ Responsible AI</td><td>SageMaker Clarify</td><td>Bias detection + SHAP explainability.</td></tr>
+    <tr><td>Bedrock Guardrails</td><td>Content filtering, PII, topic denial.</td></tr>
+    <tr><td>SageMaker Model Monitor</td><td>Detect data/model drift in production.</td></tr>
+    <tr><td>SageMaker Model Cards</td><td>Document model purpose & limitations.</td></tr>
+  </table>
+</div>
+
+<!-- ==================== GLOSSARY ==================== -->
+<div class="section" id="glossary">
+  <h2>🔤 AI/ML Glossary</h2>
+  <table>
+    <tr><th>Term</th><th>Definition</th></tr>
+    <tr><td>AI (Artificial Intelligence)</td><td>Machines that simulate human intelligence</td></tr>
+    <tr><td>ML (Machine Learning)</td><td>Algorithms that learn from data without explicit programming</td></tr>
+    <tr><td>Deep Learning</td><td>ML using neural networks with many layers</td></tr>
+    <tr><td>Generative AI</td><td>AI that creates new content (text, images, code)</td></tr>
+    <tr><td>Foundation Model (FM)</td><td>Large pre-trained model adaptable to many tasks</td></tr>
+    <tr><td>LLM</td><td>Large Language Model — FM specialized for text</td></tr>
+    <tr><td>Transformer</td><td>Neural network architecture using self-attention (basis of all LLMs)</td></tr>
+    <tr><td>Token</td><td>Unit of text processed by a model (word, subword, or character)</td></tr>
+    <tr><td>Context Window</td><td>Maximum tokens a model can process at once</td></tr>
+    <tr><td>Inference</td><td>Using a trained model to make predictions</td></tr>
+    <tr><td>Training</td><td>Teaching a model by feeding it data</td></tr>
+    <tr><td>Fine-Tuning</td><td>Further training a pre-trained model on specific data</td></tr>
+    <tr><td>RAG</td><td>Retrieval-Augmented Generation — augment FM with external knowledge</td></tr>
+    <tr><td>Embeddings</td><td>Numerical vector representations of text/data</td></tr>
+    <tr><td>Vector Database</td><td>Database optimized for storing and searching embeddings</td></tr>
+    <tr><td>Prompt</td><td>Input text given to a model to generate a response</td></tr>
+    <tr><td>Prompt Engineering</td><td>Crafting effective prompts to get desired outputs</td></tr>
+    <tr><td>Zero-Shot</td><td>Asking model to perform task with no examples</td></tr>
+    <tr><td>Few-Shot</td><td>Providing a few examples before the actual task</td></tr>
+    <tr><td>Chain-of-Thought</td><td>Prompting model to reason step by step</td></tr>
+    <tr><td>Hallucination</td><td>Model generates plausible but incorrect information</td></tr>
+    <tr><td>Grounding</td><td>Ensuring responses are based on factual data</td></tr>
+    <tr><td>Temperature</td><td>Controls randomness (0 = deterministic, 1 = creative)</td></tr>
+    <tr><td>Top-p / Top-k</td><td>Controls diversity of token selection</td></tr>
+    <tr><td>RLHF</td><td>Reinforcement Learning from Human Feedback — aligns model with human preferences</td></tr>
+    <tr><td>Overfitting</td><td>Model memorizes training data, fails on new data</td></tr>
+    <tr><td>Underfitting</td><td>Model too simple, can't learn patterns</td></tr>
+    <tr><td>Bias</td><td>Systematic unfairness in data or model predictions</td></tr>
+    <tr><td>SHAP</td><td>SHapley Additive exPlanations — explains individual predictions</td></tr>
+    <tr><td>Data Drift</td><td>Production data changes from what model was trained on</td></tr>
+    <tr><td>Model Drift</td><td>Model performance degrades over time</td></tr>
+    <tr><td>Epoch</td><td>One complete pass through the entire training dataset</td></tr>
+    <tr><td>Batch Size</td><td>Number of samples processed before updating model weights</td></tr>
+    <tr><td>Learning Rate</td><td>How much the model adjusts weights per step (hyperparameter)</td></tr>
+    <tr><td>Hyperparameter</td><td>Settings configured before training (not learned from data)</td></tr>
+    <tr><td>Feature</td><td>Input variable used by the model to make predictions</td></tr>
+    <tr><td>Label</td><td>The correct answer/output in supervised learning</td></tr>
+    <tr><td>GAN</td><td>Generative Adversarial Network — two networks competing to generate realistic content</td></tr>
+    <tr><td>Diffusion Model</td><td>Generates images by gradually removing noise from random data</td></tr>
+    <tr><td>NLP</td><td>Natural Language Processing — AI understanding human language</td></tr>
+    <tr><td>OCR</td><td>Optical Character Recognition — extracting text from images</td></tr>
+    <tr><td>Multimodal</td><td>Model that processes multiple data types (text + images + audio)</td></tr>
+    <tr><td>Agent</td><td>AI that can autonomously plan and execute multi-step tasks</td></tr>
+    <tr><td>Guardrails</td><td>Safety controls that filter harmful inputs/outputs</td></tr>
+    <tr><td>Red Teaming</td><td>Deliberately trying to break/exploit AI to find vulnerabilities</td></tr>
+  </table>
+</div>
+
+<!-- ==================== EXAM TIPS ==================== -->
+<div class="section" id="exam-tips">
+  <h2>🎯 Final Exam Tips & Tricks</h2>
+
+  <div class="card-grid">
+    <div class="card green">
+      <div class="card-title">✅ Answer Every Question</div>
+      <div class="card-body">No penalty for wrong answers. 85 questions, 120 minutes = ~85 seconds each. Flag hard ones and come back.</div>
+    </div>
+    <div class="card">
+      <div class="card-title">🔑 Key Word → Service Mapping</div>
+      <div class="card-body">
+        "Foundation models via API" → <strong>Bedrock</strong><br>
+        "Build custom ML model" → <strong>SageMaker</strong><br>
+        "No-code ML" → <strong>SageMaker Canvas</strong><br>
+        "Bias detection" → <strong>SageMaker Clarify</strong><br>
+        "Content filtering" → <strong>Bedrock Guardrails</strong><br>
+        "RAG / knowledge base" → <strong>Bedrock Knowledge Bases</strong><br>
+        "Autonomous task execution" → <strong>Bedrock Agents</strong><br>
+        "Image analysis" → <strong>Rekognition</strong><br>
+        "Speech to text" → <strong>Transcribe</strong><br>
+        "Text to speech" → <strong>Polly</strong><br>
+        "Chatbot" → <strong>Lex</strong><br>
+        "Sentiment analysis" → <strong>Comprehend</strong><br>
+        "Document OCR" → <strong>Textract</strong><br>
+        "Recommendations" → <strong>Personalize</strong><br>
+        "Data labeling" → <strong>SageMaker Ground Truth</strong><br>
+        "Model monitoring" → <strong>SageMaker Model Monitor</strong><br>
+        "Explainability / SHAP" → <strong>SageMaker Clarify</strong>
+      </div>
+    </div>
+    <div class="card red">
+      <div class="card-title">🧠 Most Tested Topics</div>
+      <div class="card-body">
+        1. Amazon Bedrock (features, models, when to use)<br>
+        2. RAG vs Fine-Tuning (when to use which)<br>
+        3. Prompt Engineering (zero/few-shot, chain-of-thought)<br>
+        4. Supervised vs Unsupervised vs Reinforcement<br>
+        5. Evaluation Metrics (precision, recall, F1)<br>
+        6. Responsible AI (bias, fairness, explainability)<br>
+        7. SageMaker Clarify (bias + SHAP)<br>
+        8. Bedrock Guardrails (safety controls)<br>
+        9. Hallucination (what it is, how to reduce)<br>
+        10. Temperature & inference parameters
+      </div>
+    </div>
+    <div class="card orange">
+      <div class="card-title">⚠️ Common Traps</div>
+      <div class="card-body">
+        • Bedrock ≠ SageMaker (use FMs vs build models)<br>
+        • RAG ≠ Fine-Tuning (retrieve data vs retrain model)<br>
+        • Precision ≠ Recall (false positives vs false negatives)<br>
+        • Overfitting ≠ Underfitting (too complex vs too simple)<br>
+        • Temperature 0 = deterministic, 1 = creative<br>
+        • Supervised = labeled data, Unsupervised = unlabeled<br>
+        • SageMaker Clarify = bias + explainability (not Guardrails)<br>
+        • Bedrock data is NOT used to train base models
+      </div>
+    </div>
+  </div>
+
+  <h3>Quick Decision Tree</h3>
+  <div class="info-box">
+    <p>🔹 "Use a foundation model" → <strong style="color: var(--accent-blue);">Bedrock</strong></p>
+    <p>🔹 "Build a custom ML model" → <strong style="color: var(--accent-blue);">SageMaker</strong></p>
+    <p>🔹 "No-code ML" → <strong style="color: var(--accent-blue);">SageMaker Canvas</strong></p>
+    <p>🔹 "Need company data in responses" → <strong style="color: var(--accent-blue);">RAG (Bedrock Knowledge Bases)</strong></p>
+    <p>🔹 "Change model behavior/style" → <strong style="color: var(--accent-blue);">Fine-Tuning</strong></p>
+    <p>🔹 "Reduce hallucinations" → <strong style="color: var(--accent-blue);">RAG + Guardrails (contextual grounding)</strong></p>
+    <p>🔹 "Block harmful content" → <strong style="color: var(--accent-blue);">Bedrock Guardrails</strong></p>
+    <p>🔹 "Detect bias in data/model" → <strong style="color: var(--accent-blue);">SageMaker Clarify</strong></p>
+    <p>🔹 "Explain why model predicted X" → <strong style="color: var(--accent-blue);">SageMaker Clarify (SHAP)</strong></p>
+    <p>🔹 "Monitor model in production" → <strong style="color: var(--accent-blue);">SageMaker Model Monitor</strong></p>
+    <p>🔹 "Label training data" → <strong style="color: var(--accent-blue);">SageMaker Ground Truth</strong></p>
+    <p>🔹 "Automate multi-step AI tasks" → <strong style="color: var(--accent-blue);">Bedrock Agents</strong></p>
+    <p>🔹 "Consistent, factual output" → <strong style="color: var(--accent-blue);">Low temperature (0-0.2)</strong></p>
+    <p>🔹 "Creative, varied output" → <strong style="color: var(--accent-blue);">High temperature (0.7-1.0)</strong></p>
+    <p>🔹 "Predict a category" → <strong style="color: var(--accent-blue);">Classification (Supervised)</strong></p>
+    <p>🔹 "Predict a number" → <strong style="color: var(--accent-blue);">Regression (Supervised)</strong></p>
+    <p>🔹 "Group similar items" → <strong style="color: var(--accent-blue);">Clustering (Unsupervised)</strong></p>
+    <p>🔹 "Agent learns by trial/error" → <strong style="color: var(--accent-blue);">Reinforcement Learning</strong></p>
+  </div>
+
+  <div class="tip" style="font-size: 1em; margin-top: 20px;">
+    You need 700/1000 to pass (~70%). Focus on Bedrock, RAG, prompt engineering, and responsible AI — they make up the bulk of the exam. Good luck! 🍀
+  </div>
+</div>
+
+</main>
+</div>
+
+</body>
+</html>
