@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AWS Certification Cheat Sheets</title>
+<link rel="stylesheet" href="shared-cheatsheet.css">
+<script src="shared-cheatsheet.js" defer></script>
+<style>
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    text-align: center;
+  }
+  .hero h1 {
+    font-size: 2.4em;
+    color: var(--text-h2);
+    margin-bottom: 8px;
+  }
+  .hero .tagline {
+    font-size: 1.1em;
+    color: var(--text-muted);
+    margin-bottom: 48px;
+  }
+  .sheet-cards {
+    display: flex;
+    gap: 28px;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 800px;
+  }
+  .sheet-card {
+    background: var(--bg-card);
+    border-radius: 16px;
+    padding: 36px 32px;
+    width: 340px;
+    box-shadow: var(--shadow-card);
+    text-decoration: none;
+    color: var(--text-primary);
+    border: 2px solid transparent;
+    transition: transform .2s, border-color .2s, box-shadow .2s;
+  }
+  .sheet-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent-orange);
+    box-shadow: 0 8px 24px rgba(0,0,0,.12);
+  }
+  .sheet-card .icon { font-size: 2.8em; margin-bottom: 12px; }
+  .sheet-card .name {
+    font-size: 1.3em;
+    font-weight: 800;
+    color: var(--text-h2);
+    margin-bottom: 4px;
+  }
+  .sheet-card .code {
+    font-size: .85em;
+    color: var(--accent-orange);
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+  .sheet-card .desc {
+    font-size: .9em;
+    color: var(--text-secondary);
+    line-height: 1.5;
+  }
+  .sheet-card .domains {
+    margin-top: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .footer {
+    margin-top: 48px;
+    font-size: .8em;
+    color: var(--text-muted);
+  }
+  .footer a { color: var(--accent-blue); text-decoration: none; }
+  .top-right {
+    position: fixed;
+    top: 14px;
+    right: 20px;
+    z-index: 10;
+  }
+</style>
+</head>
+<body>
+
+<div class="top-right">
+  <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()">🌙 Dark</button>
+</div>
+
+<div class="hero">
+  <h1>☁️ AWS Certification Cheat Sheets</h1>
+  <p class="tagline">One-page study guides to pass your AWS exams. Pick one and start reading.</p>
+
+  <div class="sheet-cards">
+    <a href="aws-ccp-cheatsheet.html" class="sheet-card">
+      <div class="icon">☁️</div>
+      <div class="name">Cloud Practitioner</div>
+      <div class="code">CLF-C02</div>
+      <div class="desc">Cloud concepts, core services, security, pricing & support. The foundational AWS cert.</div>
+      <div class="domains">
+        <span class="badge blue">Cloud Concepts</span>
+        <span class="badge green">Security</span>
+        <span class="badge orange">Services</span>
+        <span class="badge purple">Billing</span>
+      </div>
+    </a>
+
+    <a href="aws-aif-cheatsheet.html" class="sheet-card">
+      <div class="icon">🤖</div>
+      <div class="name">AI Practitioner</div>
+      <div class="code">AIF-C01</div>
+      <div class="desc">AI/ML fundamentals, generative AI, Amazon Bedrock, responsible AI & security.</div>
+      <div class="domains">
+        <span class="badge purple">AI/ML</span>
+        <span class="badge green">GenAI</span>
+        <span class="badge red">Bedrock</span>
+        <span class="badge orange">Responsible AI</span>
+      </div>
+    </a>
+  </div>
+
+  <p class="footer">Built for quick exam prep · <a href="https://github.com/savlajubin/aws-certification-cheatsheet">View on GitHub</a></p>
+</div>
+
+</body>
+</html>
